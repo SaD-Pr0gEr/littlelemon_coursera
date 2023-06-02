@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Menu</h1>
+    <ul id="menu">
+        {% for item in menu_items %}
+            <li class="menu_item">
+                <a href="{{ item.get_absolute_url }}">{{ item }}</a>
+                <p>${{ item.price }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

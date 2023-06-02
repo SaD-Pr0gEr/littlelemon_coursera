@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="menu-item-container">
+        <h1>Menu Item</h1>
+        {% include 'partials/_sitemap.html' %}
+        <div class="menu-item-info-container">
+            <div class="menu-item-info">
+                <div class="left-side product-info">
+                    <h2 class="menu-item-info__name">{{ menu_item.name }}</h2>
+                    <p class="menu-item-info__title">{{ menu_item.description }}</p>
+                    <p class="menu-item-info__price">Price: ${{ menu_item.price }}</p>
+                </div>
+                <div class="right-side">
+                    <div class="image-container">
+                        <img src="{{ menu_item.image.url }}" alt="menu item photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

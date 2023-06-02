@@ -1,0 +1,15 @@
+{% load static %}
+<header>
+    <img src="{% static 'img/logo.png' %}"/>
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'restaurant:home' %}">Home</a></li>
+        <li><a href="{% url 'restaurant:about' %}">About</a></li>
+        <li><a href="{% url 'restaurant:menu' %}">Menu</a></li>
+        <li><a href="{% url 'restaurant:book' %}">Book</a></li>
+        {% if request.user.is_superuser %}
+            <li><a href="{% url 'admin:index' %}">Admin panel</a></li>
+        {% endif %}
+    </ul>
+</nav>

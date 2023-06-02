@@ -1,0 +1,10 @@
+<div class="sitemap mb-30">
+    {% for link_obj in sitemap_links %}
+        {% if link_obj.current_path %}
+            <a class="current-sitemap-link" href="{{ link_obj.link }}">{{ link_obj.name }}</a>
+        {% else %}
+            <a class="sitemap-link" href="{{ link_obj.link }}">{{ link_obj.name }}</a>
+            <span class="sitemap-separator">/</span>
+        {% endif %}
+    {% endfor %}
+</div>
