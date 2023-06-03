@@ -3,13 +3,15 @@ from django.urls import reverse_lazy
 
 
 class Booking(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
+    booker_name = models.CharField('Your name', max_length=50)
+    reservation_date = models.DateField()
+    reservation_time = models.TimeField()
+    reservation_slot = models.SmallIntegerField(default=10)
     guest_number = models.IntegerField()
     comment = models.CharField(max_length=1000)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return f'{self.reservation_date}-{self.reservation_time}'
 
 
 class Menu(models.Model):

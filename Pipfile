@@ -9,6 +9,7 @@ djangorestframework = "*"
 djangorestframework-xml = "*"
 pillow = "*"
 django-jazzmin = "*"
+djoser = "*"
 
 [dev-packages]
 

@@ -16,4 +16,7 @@ class MenuItem(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
 
     def __str__(self) -> str:
-        return self.title
+        return f"{self.title}"
+
+    def __repr__(self) -> str:
+        return f"Menu: {self.title}"

@@ -1,9 +1,11 @@
+import datetime
+
 from django.forms import ModelForm
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from .forms import BookingForm
-from .models import Menu
+from .models import Menu, Booking
 
 
 def home(request):
@@ -20,7 +22,10 @@ def book(request):
         form: ModelForm = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form': form}
+    books = Booking.objects.filter(
+        reservation_date=datetime.datetime.now().date()
+    ).all()
+    context = {'form': form, 'books': books}
     return render(request, 'book.html', context)
 
 
